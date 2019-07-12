@@ -3,41 +3,51 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-
     <bean id="actor1" class="com.stackroute.domain.Actor">
 
-    <property name="name" value="Vijay"/>
-    <property name="gender" value="male"/>
-    <property name="age" value="30"/>
+   <constructor-arg  value="Vijay" index="0" type="java.lang.String"/>
+    <constructor-arg value="male" index="1" type="java.lang.String"/>
+    <constructor-arg value="30" index="2" type="int"/>
 
 </bean>
-<bean id="movie1" class="com.stackroute.domain.Movie">
-    <property name="actor" ref="actor1" />
+<bean id="movie1" class="com.stackroute.domain.Movie" scope="prototype">
+    <constructor-arg ref="actor1" />
 </bean>
 
 
     <bean id="actor2" class="com.stackroute.domain.Actor">
 
-        <property name="name" value="Rakul"/>
-        <property name="gender" value="Female"/>
-        <property name="age" value="28"/>
+        <constructor-arg value="Rakul" index="0" type="java.lang.String"/>
+        <constructor-arg value="Female" index="1" type="java.lang.String"/>
+        <constructor-arg value="28" index="2" type="int"/>
 
     </bean>
 
-    <bean id="movie2" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="actor2"/>
+    <bean id="movie2" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg ref="actor2"/>
     </bean>
 
 
     <bean id="actor3" class="com.stackroute.domain.Actor">
 
-        <property name="name" value="Neha"/>
-        <property name="gender" value="Female"/>
-        <property name="age" value="28"/>
+        <constructor-arg value="Neha" index="0" type="java.lang.String"/>
+        <constructor-arg value="Female" index="1" type="java.lang.String"/>
+        <constructor-arg value="28" index="2" type="int"/>
 
     </bean>
-    <bean id="movie3" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="actor3"/>
+    <bean id="movie3" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg ref="actor3"/>
+    </bean>
+
+    <bean id="actor4" class="com.stackroute.domain.Actor">
+
+        <constructor-arg value="Rani" index="0" type="java.lang.String"/>
+        <constructor-arg value="Female" index="1" type="java.lang.String"/>
+        <constructor-arg value="28" index="2" type="int"/>
+
+    </bean>
+    <bean name="movie4,movie5" class="com.stackroute.domain.Movie" scope="prototype">
+        <constructor-arg ref="actor4"/>
     </bean>
 
 

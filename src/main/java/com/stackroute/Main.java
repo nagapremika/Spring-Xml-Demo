@@ -21,24 +21,21 @@ import org.springframework.core.io.ClassPathResource;
 public class Main {
     public static void main(String[] args) {
 
-//        Dependency injection using ApplicationContext
+//       Dependency injection using ApplicationContext
         ApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
-        Movie movie1=context.getBean("movie1",Movie.class);
+        Movie movie1=context.getBean("movie1",Movie.class);     //Injecting movie1
         movie1.display();
-
-//        Dependency Injection using BeanFactory
-        ClassPathResource res = new ClassPathResource("beans.xml");
-        BeanFactory beanFactory = new XmlBeanFactory(res);
-        Movie movie2=beanFactory.getBean("movie2",Movie.class);
+        Movie movie2=context.getBean("movie2",Movie.class);        //Injecting movie2
         movie2.display();
-
-//        Dependency injection using BeanDefaultRegistry and BeanDefinitionReader
-        DefaultListableBeanFactory defaultListableBeanFactory=new DefaultListableBeanFactory();
-        BeanDefinitionRegistry beanDefinitionRegistry=new GenericApplicationContext( defaultListableBeanFactory);
-        BeanDefinitionReader beanDefinitionReader=new XmlBeanDefinitionReader(beanDefinitionRegistry);
-        beanDefinitionReader.loadBeanDefinitions("beans.xml");
-        Movie movie3=beanFactory.getBean("movie3",Movie.class);
+        Movie movie3=context.getBean("movie3",Movie.class);         //Injecting movie3
         movie3.display();
+        System.out.println(movie2==movie3);               //  Comparing movie2 and movie3
+        Movie movie4=context.getBean("movie4",Movie.class);     //Injecting movie4
+        movie4.display();
+        Movie movie5=context.getBean("movie5",Movie.class);     //Injecting movie5
+        movie5.display();
+        System.out.println(movie4==movie5);
+
 
 
 
