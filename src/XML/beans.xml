@@ -23,6 +23,9 @@
         <constructor-arg ref="actor2"/>
 
 </bean>
+    <bean id="beanLifeCycleDemoBean" class="com.stackroute.demo.BeanLifeCycleDemoBean" init-method="customInit" destroy-method="customDestroy">
+
+    </bean>
 
 
 
