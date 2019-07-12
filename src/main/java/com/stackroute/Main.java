@@ -11,10 +11,6 @@ public class Main {
         ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("beans.xml");
       Movie movie1=context.getBean("movie1",Movie.class);     //Injecting movie1 by using autowire=byName
         movie1.display();
-       Movie movie2=context.getBean("movie2",Movie.class);        //Injecting movie2 using constructor injection
-        movie2.display();
-
-
 
 context.close();        // closes the context such that bean is destroyed
 
